@@ -16,7 +16,7 @@ namespace GIP_Wiskunde_Joppe_van_Treek
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Startpage());
         }
     }
 }

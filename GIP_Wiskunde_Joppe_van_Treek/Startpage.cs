@@ -10,11 +10,30 @@ using System.Windows.Forms;
 
 namespace GIP_Wiskunde_Joppe_van_Treek
 {
-    public partial class Form1 : Form
+    public partial class Startpage : Form
     {
-        public Form1()
+        public Startpage()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAflossing_Click(object sender, EventArgs e)
+        {
+            frmAflossingsplan fAflossing = new frmAflossingsplan();
+            fAflossing.Show();
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnIntrest_Click(object sender, EventArgs e)
+        {
+            frmIntrestberekening fIntrest = new frmIntrestberekening();
+            fIntrest.Show();
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

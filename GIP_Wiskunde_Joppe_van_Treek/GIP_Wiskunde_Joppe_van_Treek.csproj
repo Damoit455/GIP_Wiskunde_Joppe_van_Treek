@@ -46,14 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmAflossingsplan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmAflossingsplan.Designer.cs">
+      <DependentUpon>frmAflossingsplan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIntrestberekening.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIntrestberekening.Designer.cs">
+      <DependentUpon>frmIntrestberekening.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Startpage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Startpage.Designer.cs">
+      <DependentUpon>Startpage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAflossingsplan.resx">
+      <DependentUpon>frmAflossingsplan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIntrestberekening.resx">
+      <DependentUpon>frmIntrestberekening.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Startpage.resx">
+      <DependentUpon>Startpage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
