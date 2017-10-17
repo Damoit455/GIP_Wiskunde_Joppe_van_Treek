@@ -26,14 +26,15 @@ namespace GIP_Wiskunde_Joppe_van_Treek
         {
             frmAflossingsplan fAflossing = new frmAflossingsplan();
             fAflossing.Show();
-            this.WindowState = FormWindowState.Minimized;
+            this.Hide();
         }
 
         private void btnIntrest_Click(object sender, EventArgs e)
         {
+            
             frmIntrestberekening fIntrest = new frmIntrestberekening();
             fIntrest.Show();
-            this.WindowState = FormWindowState.Minimized;
+            this.Hide();
         }
     }
 }

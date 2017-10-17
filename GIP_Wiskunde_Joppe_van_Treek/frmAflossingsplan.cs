@@ -16,5 +16,12 @@ namespace GIP_Wiskunde_Joppe_van_Treek
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Startpage fStart = new Startpage();
+            fStart.Show();
+            this.Close();
+        }
     }
 }

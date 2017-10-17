@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(12, 226);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(124, 23);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.Text = "Terug naar home";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // frmAflossingsplan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnBack);
             this.Name = "frmAflossingsplan";
             this.Text = "Aflossingsplan";
             this.ResumeLayout(false);
@@ -42,5 +54,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnBack;
     }
 }
