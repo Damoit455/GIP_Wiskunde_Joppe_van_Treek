@@ -22,7 +22,6 @@ namespace GIP_Wiskunde_Joppe_van_Treek
             Startpage fStart = new Startpage();
             fStart.Show();
             this.Close();
-
         }
     }
 }
