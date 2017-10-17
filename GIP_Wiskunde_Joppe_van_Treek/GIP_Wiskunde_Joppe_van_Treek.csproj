@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cAflossing.cs" />
+    <Compile Include="cComboboxItem.cs" />
     <Compile Include="frmAflossingsplan.cs">
       <SubType>Form</SubType>
     </Compile>

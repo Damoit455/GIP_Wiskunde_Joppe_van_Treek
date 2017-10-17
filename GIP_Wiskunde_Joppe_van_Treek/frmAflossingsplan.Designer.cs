@@ -34,19 +34,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cbAnnuiteit = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtLooptijd = new System.Windows.Forms.TextBox();
+            this.txtRente = new System.Windows.Forms.TextBox();
+            this.txtGeleend = new System.Windows.Forms.TextBox();
             this.cbKeuzeAflossing = new System.Windows.Forms.ComboBox();
             this.pnlValues = new System.Windows.Forms.Panel();
             this.pnlAnnuiteit = new System.Windows.Forms.Panel();
+            this.btnBereken = new System.Windows.Forms.Button();
             this.pnlValues.SuspendLayout();
             this.pnlAnnuiteit.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(34, 356);
+            this.btnBack.Location = new System.Drawing.Point(12, 197);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(94, 34);
             this.btnBack.TabIndex = 1;
@@ -89,7 +90,6 @@
             this.label4.Size = new System.Drawing.Size(122, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "Annuïteit berekenen per";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // cbAnnuiteit
             // 
@@ -99,26 +99,26 @@
             this.cbAnnuiteit.Size = new System.Drawing.Size(121, 21);
             this.cbAnnuiteit.TabIndex = 6;
             // 
-            // textBox1
+            // txtLooptijd
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 7;
+            this.txtLooptijd.Location = new System.Drawing.Point(131, 58);
+            this.txtLooptijd.Name = "txtLooptijd";
+            this.txtLooptijd.Size = new System.Drawing.Size(121, 20);
+            this.txtLooptijd.TabIndex = 7;
             // 
-            // textBox2
+            // txtRente
             // 
-            this.textBox2.Location = new System.Drawing.Point(131, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 8;
+            this.txtRente.Location = new System.Drawing.Point(131, 32);
+            this.txtRente.Name = "txtRente";
+            this.txtRente.Size = new System.Drawing.Size(121, 20);
+            this.txtRente.TabIndex = 8;
             // 
-            // textBox3
+            // txtGeleend
             // 
-            this.textBox3.Location = new System.Drawing.Point(131, 6);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 9;
+            this.txtGeleend.Location = new System.Drawing.Point(131, 6);
+            this.txtGeleend.Name = "txtGeleend";
+            this.txtGeleend.Size = new System.Drawing.Size(121, 20);
+            this.txtGeleend.TabIndex = 9;
             // 
             // cbKeuzeAflossing
             // 
@@ -131,15 +131,16 @@
             // 
             // pnlValues
             // 
+            this.pnlValues.Controls.Add(this.btnBereken);
             this.pnlValues.Controls.Add(this.label1);
             this.pnlValues.Controls.Add(this.label2);
-            this.pnlValues.Controls.Add(this.textBox3);
+            this.pnlValues.Controls.Add(this.txtGeleend);
             this.pnlValues.Controls.Add(this.label3);
-            this.pnlValues.Controls.Add(this.textBox2);
-            this.pnlValues.Controls.Add(this.textBox1);
+            this.pnlValues.Controls.Add(this.txtRente);
+            this.pnlValues.Controls.Add(this.txtLooptijd);
             this.pnlValues.Location = new System.Drawing.Point(12, 39);
             this.pnlValues.Name = "pnlValues";
-            this.pnlValues.Size = new System.Drawing.Size(439, 176);
+            this.pnlValues.Size = new System.Drawing.Size(439, 152);
             this.pnlValues.TabIndex = 11;
             this.pnlValues.Visible = false;
             // 
@@ -149,14 +150,24 @@
             this.pnlAnnuiteit.Controls.Add(this.label4);
             this.pnlAnnuiteit.Location = new System.Drawing.Point(12, 123);
             this.pnlAnnuiteit.Name = "pnlAnnuiteit";
-            this.pnlAnnuiteit.Size = new System.Drawing.Size(269, 61);
+            this.pnlAnnuiteit.Size = new System.Drawing.Size(269, 31);
             this.pnlAnnuiteit.TabIndex = 10;
+            // 
+            // btnBereken
+            // 
+            this.btnBereken.Location = new System.Drawing.Point(0, 121);
+            this.btnBereken.Name = "btnBereken";
+            this.btnBereken.Size = new System.Drawing.Size(94, 28);
+            this.btnBereken.TabIndex = 10;
+            this.btnBereken.Text = "Bereken";
+            this.btnBereken.UseVisualStyleBackColor = true;
+            this.btnBereken.Click += new System.EventHandler(this.btnBereken_Click);
             // 
             // frmAflossingsplan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(595, 416);
+            this.ClientSize = new System.Drawing.Size(595, 243);
             this.Controls.Add(this.pnlAnnuiteit);
             this.Controls.Add(this.pnlValues);
             this.Controls.Add(this.cbKeuzeAflossing);
@@ -180,11 +191,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbAnnuiteit;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtLooptijd;
+        private System.Windows.Forms.TextBox txtRente;
+        private System.Windows.Forms.TextBox txtGeleend;
         private System.Windows.Forms.ComboBox cbKeuzeAflossing;
         private System.Windows.Forms.Panel pnlValues;
         private System.Windows.Forms.Panel pnlAnnuiteit;
+        private System.Windows.Forms.Button btnBereken;
     }
 }

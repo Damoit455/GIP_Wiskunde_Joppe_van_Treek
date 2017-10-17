@@ -26,46 +26,47 @@ namespace GIP_Wiskunde_Joppe_van_Treek
 
         private void frmAflossingsplan_Load(object sender, EventArgs e)
         {
-            ComboboxItem item = new ComboboxItem();
+            cComboboxItem.ComboboxItem item = new cComboboxItem.ComboboxItem();
             item.Text = "Kies een aflossing";
             item.Value = 0;
             cbKeuzeAflossing.Items.Add(item);
             cbKeuzeAflossing.SelectedIndex = 0;
 
-            item = new ComboboxItem();
+            item = new cComboboxItem.ComboboxItem();
             item.Text = "Annuïteit aflossing";
             item.Value = 1;
             cbKeuzeAflossing.Items.Add(item);
 
-            item = new ComboboxItem();
+            item = new cComboboxItem.ComboboxItem();
             item.Text = "Linaire aflossing";
             item.Value = 2;
             cbKeuzeAflossing.Items.Add(item);
 
-            item = new ComboboxItem();
+            item = new cComboboxItem.ComboboxItem();
             item.Text = "Jaar";
             item.Value = 0;
             cbAnnuiteit.Items.Add(item);
             cbAnnuiteit.SelectedIndex = 0;
 
-            item = new ComboboxItem();
+            item = new cComboboxItem.ComboboxItem();
             item.Text = "Kwartaal";
             item.Value = 1;
             cbAnnuiteit.Items.Add(item);
 
-            item = new ComboboxItem();
+            item = new cComboboxItem.ComboboxItem();
             item.Text = "Maand";
             item.Value = 2;
             cbAnnuiteit.Items.Add(item);
+            
         }
 
         private void cbKeuzeAflossing_SelectedIndexChanged(object sender, EventArgs e)
         {
             //comboBox1.SelectedItem as ComboboxItem).Value.ToString());
-            if(Convert.ToInt32((cbKeuzeAflossing.SelectedItem as ComboboxItem).Value) !=0)
+            if(Convert.ToInt32((cbKeuzeAflossing.SelectedItem as cComboboxItem.ComboboxItem).Value) !=0)
             {
                 pnlValues.Visible = true;
-                if (Convert.ToInt32((cbKeuzeAflossing.SelectedItem as ComboboxItem).Value) == 1)
+                if (Convert.ToInt32((cbKeuzeAflossing.SelectedItem as cComboboxItem.ComboboxItem).Value) == 1)
                 {
                     pnlAnnuiteit.Visible = true;
                 }
@@ -81,19 +82,18 @@ namespace GIP_Wiskunde_Joppe_van_Treek
             }
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void btnBereken_Click(object sender, EventArgs e)
         {
-
-        }
-    }
-    public class ComboboxItem
-    {
-        public string Text { get; set; }
-        public object Value { get; set; }
-
-        public override string ToString()
-        {
-            return Text;
+            double[] test;
+            double dblGeleend, dblRente;
+            int intLooptijd , intLooptijdper,intKeuze;
+            dblGeleend = Convert.ToDouble(txtGeleend.Text);
+            dblRente = Convert.ToDouble(txtRente.Text )/100;
+            intKeuze = Convert.ToInt32((cbKeuzeAflossing.SelectedItem as cComboboxItem.ComboboxItem).Value);
+            intLooptijd = Convert.ToInt32(txtLooptijd.Text);
+            intLooptijdper = Convert.ToInt32((cbAnnuiteit.SelectedItem as cComboboxItem.ComboboxItem).Value);
+            test= Berekeningen.Aflossing(intKeuze,dblGeleend,dblRente,intLooptijd,intLooptijdper);
+            MessageBox.Show(test[0].ToString());
         }
     }
 }
