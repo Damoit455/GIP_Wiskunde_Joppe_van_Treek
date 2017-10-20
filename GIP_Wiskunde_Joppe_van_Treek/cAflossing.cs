@@ -19,31 +19,26 @@ namespace GIP_Wiskunde_Joppe_van_Treek
                 switch (intBerekenPer)
                 {
                     case 0:
-                        intLooptijd /= 12;
                         dblAnnuiteit = (dblRente / (1-(Math.Pow((1 + dblRente),-(intLooptijd))))) * dblStartbedrag;
-                        dblAnnuiteit = Math.Round(dblAnnuiteit, 2);
-                        dblBedaaldeRente = Math.Round(dblNogTeBetalenBedrag * dblRente,2);
-                        dblAflossing = Math.Round(dblAnnuiteit - dblBedaaldeRente, 2);
-                        dblNogTebetalen = Math.Round(dblNogTeBetalenBedrag - dblAflossing,2);
+                        dblBedaaldeRente =dblNogTeBetalenBedrag * dblRente;
+                        dblAflossing = dblAnnuiteit - dblBedaaldeRente;
+                        dblNogTebetalen =dblNogTeBetalenBedrag - dblAflossing;
                         retvalue = new double[] { dblNogTebetalen, dblAnnuiteit, dblBedaaldeRente, dblAflossing };
                         break;
                     case 1:
                         dblRente /= 4;
-                        intLooptijd /= 3;
                         dblAnnuiteit = (dblRente / (1 - (Math.Pow((1 + dblRente), -(intLooptijd))))) * dblStartbedrag;
-                        dblAnnuiteit = Math.Round(dblAnnuiteit, 2);
-                        dblBedaaldeRente = Math.Round(dblNogTeBetalenBedrag * dblRente, 2);
-                        dblAflossing = Math.Round(dblAnnuiteit - dblBedaaldeRente, 2);
-                        dblNogTebetalen = Math.Round(dblNogTeBetalenBedrag - dblAflossing,2);
+                        dblBedaaldeRente = dblNogTeBetalenBedrag * dblRente;
+                        dblAflossing =dblAnnuiteit - dblBedaaldeRente;
+                        dblNogTebetalen = dblNogTeBetalenBedrag - dblAflossing;
                         retvalue = new double[] { dblNogTebetalen, dblAnnuiteit, dblBedaaldeRente, dblAflossing };
                         break;
                     case 2:
                         dblRente /= 12;
                         dblAnnuiteit = (dblRente / (1 - (Math.Pow((1 + dblRente), -(intLooptijd))))) * dblStartbedrag;
-                        dblAnnuiteit = Math.Round(dblAnnuiteit, 2);
-                        dblBedaaldeRente = Math.Round(dblNogTeBetalenBedrag * dblRente, 2);
-                        dblAflossing = Math.Round(dblAnnuiteit - dblBedaaldeRente, 2);
-                        dblNogTebetalen = Math.Round(dblNogTeBetalenBedrag - dblAflossing,2);
+                        dblBedaaldeRente =dblNogTeBetalenBedrag * dblRente;
+                        dblAflossing = dblAnnuiteit - dblBedaaldeRente;
+                        dblNogTebetalen = dblNogTeBetalenBedrag - dblAflossing;
                         retvalue = new double[] { dblNogTebetalen, dblAnnuiteit, dblBedaaldeRente, dblAflossing };
                         break;
                 }
@@ -58,3 +53,4 @@ namespace GIP_Wiskunde_Joppe_van_Treek
         }      
     }
 }
+

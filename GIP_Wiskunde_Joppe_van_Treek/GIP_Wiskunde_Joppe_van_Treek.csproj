@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="cAflossing.cs" />
     <Compile Include="cComboboxItem.cs" />
+    <Compile Include="cLooptijdBerekenen.cs" />
     <Compile Include="frmAflossingsplan.cs">
       <SubType>Form</SubType>
     </Compile>

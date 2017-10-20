@@ -86,7 +86,23 @@ namespace GIP_Wiskunde_Joppe_van_Treek
 
         private void btnBereken_Click(object sender, EventArgs e)
         {
-            double[] test;
+            Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+
+            if (xlApp == null)
+            {
+                MessageBox.Show("Excel is not properly installed!!");
+                return;
+            }
+
+
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            double[] test = null;
             double dblGeleend, dblRente,dblNogTeBetalen;
             int intLooptijd , intLooptijdper,intKeuze;
             dblGeleend = Convert.ToDouble(txtGeleend.Text);
@@ -95,8 +111,32 @@ namespace GIP_Wiskunde_Joppe_van_Treek
             intKeuze = Convert.ToInt32((cbKeuzeAflossing.SelectedItem as cComboboxItem.ComboboxItem).Value);
             intLooptijd = Convert.ToInt32(txtLooptijd.Text);
             intLooptijdper = Convert.ToInt32((cbAnnuiteit.SelectedItem as cComboboxItem.ComboboxItem).Value);
-            test= Berekeningen.Aflossing(intKeuze,dblGeleend,dblNogTeBetalen,dblRente,intLooptijd,intLooptijdper);
-            MessageBox.Show(test[0].ToString() + " " + test[1].ToString() + " " + test[2].ToString() + " " + test[3].ToString() );
+            intLooptijd = cLooptijdBerekenen.Berekentijd(intLooptijdper, intLooptijd);
+
+            xlWorkSheet.Cells[1, 1] = "Periode";
+            xlWorkSheet.Cells[1, 2] = "Annuïteit";
+            xlWorkSheet.Cells[1, 3] = "Rente";
+            xlWorkSheet.Cells[1, 4] = "Aflossing";
+            xlWorkSheet.Cells[1, 5] = "Nog te betalen";
+
+            for (int i = 2; i < intLooptijd+2; i++)
+            {
+                test = Berekeningen.Aflossing(intKeuze, dblGeleend, dblNogTeBetalen, dblRente, intLooptijd, intLooptijdper);
+                xlWorkSheet.Cells[i, 1] = i-1;
+                xlWorkSheet.Cells[i, 2] = "€ " + Math.Round(test[1],2);
+                xlWorkSheet.Cells[i, 3] = "€ " + Math.Round(test[2], 2);
+                xlWorkSheet.Cells[i, 4] = "€ " + Math.Round(test[3], 2);
+                xlWorkSheet.Cells[i, 5] = "€ " + Math.Round(test[0], 2);
+                dblNogTeBetalen = test[0];
+            }
+            xlWorkBook.SaveAs("d:\\csharp-Excel.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+
+            xlApp = new Excel.Application();
+            xlWorkBook = xlApp.Workbooks.Open("d:\\csharp-Excel.xls", 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
         }
     }
 }
