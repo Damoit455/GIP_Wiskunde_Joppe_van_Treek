@@ -136,11 +136,7 @@ namespace GIP_Wiskunde_Joppe_van_Treek
             }
             xlWorkBook.SaveAs("d:\\csharp-Excel.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             xlWorkBook.Close(true, misValue, misValue);
-            xlApp.Quit();
-
-            xlApp = new Excel.Application();
-            xlWorkBook = xlApp.Workbooks.Open("d:\\csharp-Excel.xls", 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
-            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            System.Diagnostics.Process.Start(@"d:\\csharp-Excel.xls");
 
         }
     }

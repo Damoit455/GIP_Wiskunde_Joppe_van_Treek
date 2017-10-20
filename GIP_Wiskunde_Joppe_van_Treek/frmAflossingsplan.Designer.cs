@@ -39,8 +39,8 @@
             this.txtGeleend = new System.Windows.Forms.TextBox();
             this.cbKeuzeAflossing = new System.Windows.Forms.ComboBox();
             this.pnlValues = new System.Windows.Forms.Panel();
-            this.pnlAnnuiteit = new System.Windows.Forms.Panel();
             this.btnBereken = new System.Windows.Forms.Button();
+            this.pnlAnnuiteit = new System.Windows.Forms.Panel();
             this.pnlValues.SuspendLayout();
             this.pnlAnnuiteit.SuspendLayout();
             this.SuspendLayout();
@@ -144,15 +144,6 @@
             this.pnlValues.TabIndex = 11;
             this.pnlValues.Visible = false;
             // 
-            // pnlAnnuiteit
-            // 
-            this.pnlAnnuiteit.Controls.Add(this.cbAnnuiteit);
-            this.pnlAnnuiteit.Controls.Add(this.label4);
-            this.pnlAnnuiteit.Location = new System.Drawing.Point(12, 123);
-            this.pnlAnnuiteit.Name = "pnlAnnuiteit";
-            this.pnlAnnuiteit.Size = new System.Drawing.Size(269, 31);
-            this.pnlAnnuiteit.TabIndex = 10;
-            // 
             // btnBereken
             // 
             this.btnBereken.Location = new System.Drawing.Point(0, 121);
@@ -162,6 +153,15 @@
             this.btnBereken.Text = "Bereken";
             this.btnBereken.UseVisualStyleBackColor = true;
             this.btnBereken.Click += new System.EventHandler(this.btnBereken_Click);
+            // 
+            // pnlAnnuiteit
+            // 
+            this.pnlAnnuiteit.Controls.Add(this.cbAnnuiteit);
+            this.pnlAnnuiteit.Controls.Add(this.label4);
+            this.pnlAnnuiteit.Location = new System.Drawing.Point(12, 123);
+            this.pnlAnnuiteit.Name = "pnlAnnuiteit";
+            this.pnlAnnuiteit.Size = new System.Drawing.Size(269, 31);
+            this.pnlAnnuiteit.TabIndex = 10;
             // 
             // frmAflossingsplan
             // 
