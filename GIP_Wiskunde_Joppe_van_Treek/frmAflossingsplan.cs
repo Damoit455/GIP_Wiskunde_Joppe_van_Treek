@@ -101,6 +101,7 @@ namespace GIP_Wiskunde_Joppe_van_Treek
 
             xlWorkBook = xlApp.Workbooks.Add(misValue);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            Excel.Range formatRange;
 
             double[] test = null;
             double dblGeleend, dblRente,dblNogTeBetalen;
@@ -123,10 +124,14 @@ namespace GIP_Wiskunde_Joppe_van_Treek
             {
                 test = Berekeningen.Aflossing(intKeuze, dblGeleend, dblNogTeBetalen, dblRente, intLooptijd, intLooptijdper);
                 xlWorkSheet.Cells[i, 1] = i-1;
-                xlWorkSheet.Cells[i, 2] = "€ " + Math.Round(test[1],2);
-                xlWorkSheet.Cells[i, 3] = "€ " + Math.Round(test[2], 2);
-                xlWorkSheet.Cells[i, 4] = "€ " + Math.Round(test[3], 2);
-                xlWorkSheet.Cells[i, 5] = "€ " + Math.Round(test[0], 2);
+                xlWorkSheet.Cells[i, 2] = Math.Round(test[1],2);
+                xlWorkSheet.Cells[i, 3] = Math.Round(test[2], 2);
+                xlWorkSheet.Cells[i, 4] = Math.Round(test[3], 2);
+                xlWorkSheet.Cells[i, 5] = Math.Round(test[0], 2);
+
+                formatRange = xlWorkSheet.get_Range("b" + i, "e" + i);
+                formatRange.NumberFormat = "$ #,###,###.00";
+
                 dblNogTeBetalen = test[0];
             }
             xlWorkBook.SaveAs("d:\\csharp-Excel.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
