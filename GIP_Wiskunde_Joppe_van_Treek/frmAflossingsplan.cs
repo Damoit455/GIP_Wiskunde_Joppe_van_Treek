@@ -85,15 +85,16 @@ namespace GIP_Wiskunde_Joppe_van_Treek
         private void btnBereken_Click(object sender, EventArgs e)
         {
             double[] test;
-            double dblGeleend, dblRente;
+            double dblGeleend, dblRente,dblNogTeBetalen;
             int intLooptijd , intLooptijdper,intKeuze;
             dblGeleend = Convert.ToDouble(txtGeleend.Text);
-            dblRente = Convert.ToDouble(txtRente.Text )/100;
+            dblNogTeBetalen = Convert.ToDouble(txtGeleend.Text);
+            dblRente = Convert.ToDouble(txtRente.Text);
             intKeuze = Convert.ToInt32((cbKeuzeAflossing.SelectedItem as cComboboxItem.ComboboxItem).Value);
             intLooptijd = Convert.ToInt32(txtLooptijd.Text);
             intLooptijdper = Convert.ToInt32((cbAnnuiteit.SelectedItem as cComboboxItem.ComboboxItem).Value);
-            test= Berekeningen.Aflossing(intKeuze,dblGeleend,dblRente,intLooptijd,intLooptijdper);
-            MessageBox.Show(test[0].ToString());
+            test= Berekeningen.Aflossing(intKeuze,dblGeleend,dblNogTeBetalen,dblRente,intLooptijd,intLooptijdper);
+            MessageBox.Show(test[0].ToString() + " " + test[1].ToString() + " " + test[2].ToString() + " " + test[3].ToString() );
         }
     }
 }
